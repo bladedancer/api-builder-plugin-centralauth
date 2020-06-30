@@ -1,0 +1,72 @@
+flow-nodes:
+  centralauth:
+    name: API Central Authentication
+    icon: icon.svg
+    description: Get an access token for API Central.
+    category: general
+    methods:
+      authenticateJWT:
+        name: Authenticate with signed JWT
+        description: Gets an access token for API Central.
+        parameters:
+          kid:
+            name: KID (Key Id)
+            description: The key id.
+            required: true
+            initialType: string
+            schema:
+              type: string
+          alg:
+            name: ALG (Algorithm)
+            description: The algorithm.
+            required: false
+            initialType: string
+            schema:
+              type: string
+          iss:
+            name: ISS (Issuer)
+            description: The issuer.
+            required: false
+            initialType: string
+            schema:
+              type: string
+          aud:
+            name: AUD (Audience)
+            description: The audience.
+            required: false
+            initialType: string
+            schema:
+              type: string
+          sub:
+            name: SUB (Subject)
+            description: The subject.
+            required: true
+            initialType: string
+            schema:
+              type: string
+          privateKey:
+            name: Private Key
+            description: The private key.
+            required: true
+            initialType: string
+            schema:
+              type: string
+              format: multiline
+        # "Next" (next) output
+        returns:
+          name: Next
+          description: Autheticated successfully.
+          context: $.accessToken
+          schema:
+            type: string
+        # "Error" (error) output
+        throws:
+          name: Error
+          description: An unexpected error was encountered.
+          context: $.error
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+
