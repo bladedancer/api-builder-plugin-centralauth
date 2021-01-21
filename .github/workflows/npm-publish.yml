@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: 12
       - run: npm ci
@@ -28,29 +28,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-          always-auth: true
       - run: npm ci
-      - run: cat ${NPM_CONFIG_USERCONFIG} 
-      - run: npm publish --access public
+      - run: npm publish -ddd --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-  publish-npm-cw:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - name: Publish to NPM package repo
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-        run: |
-          npm ci
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.npm_token }}" > ~/.npmrc
-          npm publish --access public
 
   publish-gpr:
     needs: build
