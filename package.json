@@ -1,6 +1,6 @@
 {
 	"name": "@bladedancer/api-builder-plugin-centralauth",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "A plugin for acquiring access tokens for API Central.",
 	"author": "",
 	"license": "ISC",
