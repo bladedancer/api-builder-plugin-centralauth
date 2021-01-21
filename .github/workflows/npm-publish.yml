@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - name : machine echo env
+        env : { CONTENT : "${{ toJson(env) }}" }
+        run : "echo $CONTENT"
       - run: npm ci
       - run: npm publish --access public
         env:
