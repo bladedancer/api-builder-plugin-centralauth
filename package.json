@@ -18,7 +18,7 @@
 	],
 	"dependencies": {
 		"@axway/api-builder-sdk": "^1.0.0",
-		"axios": "^0.19.2",
+		"axios": "^0.21.1",
 		"jsrsasign": "^8.0.20",
 		"querystring": "^0.2.0"
 	},
