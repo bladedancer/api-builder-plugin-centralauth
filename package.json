@@ -19,7 +19,7 @@
 	"dependencies": {
 		"@axway/api-builder-sdk": "^1.0.0",
 		"axios": "^0.21.1",
-		"jsrsasign": "^8.0.20",
+		"jsrsasign": "^10.2.0",
 		"querystring": "^0.2.0"
 	},
 	"peerDependencies": {
